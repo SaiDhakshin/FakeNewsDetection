@@ -156,7 +156,7 @@ export default {
       if (this.provider == "google-in") {
         try {
           await axios
-            .post("http://localhost:3000/verify", {
+            .post("https://fake-news-detection-back.vercel.app/verify", {
               data: this.query,
               source: this.sources,
             })
@@ -193,7 +193,9 @@ export default {
 
       if (this.provider == "gnews") {
         axios
-          .post("http://localhost:3000/gnews", { data: this.query })
+          .post("https://fake-news-detection-back.vercel.app/gnews", {
+            data: this.query,
+          })
           .then((response) => {
             console.log(response);
 
