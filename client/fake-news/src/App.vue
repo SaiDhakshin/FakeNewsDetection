@@ -159,6 +159,7 @@ export default {
             .post("https://fake-news-detection-back.vercel.app/verify", {
               data: this.query,
               source: this.sources,
+              withCredentials: false,
             })
             .then((response) => {
               console.log(response);
@@ -195,6 +196,7 @@ export default {
         axios
           .post("https://fake-news-detection-back.vercel.app/gnews", {
             data: this.query,
+            withCredentials: false,
           })
           .then((response) => {
             console.log(response);
