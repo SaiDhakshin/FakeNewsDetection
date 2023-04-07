@@ -15,6 +15,16 @@
     "concurrently": "^8.0.1",
     "cors": "^2.8.5",
     "express": "^4.18.2",
-    "newsapi": "^2.4.1"
+    "newsapi": "^2.4.1",
+    "build": "^0.1.4",
+    "npm": "^9.6.4",
+    "pinia": "^2.0.32",
+    "run": "^1.4.0",
+    "vue": "^3.2.47",
+    "vue-router": "^4.1.6"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.0.0",
+    "vite": "^4.1.4"
   }
 }
