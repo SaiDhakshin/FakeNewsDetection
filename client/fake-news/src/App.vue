@@ -193,7 +193,7 @@ export default {
       }
 
       if (this.provider == "gnews") {
-        axios
+        await axios
           .post("https://fake-news-detection-back.vercel.app/gnews", {
             data: this.query,
             withCredentials: false,

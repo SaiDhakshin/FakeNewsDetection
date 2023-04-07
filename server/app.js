@@ -24,7 +24,7 @@ app.get("/", (req, res) => {
   res.redirect("/verify");
 });
 
-app.post("/verify", (req, res) => {
+app.post("/verify", async (req, res) => {
   //   To query top headlines
   //   All options passed to topHeadlines are optional, but you need to include at least one of them
   //   newsapi.v2
@@ -47,7 +47,7 @@ app.post("/verify", (req, res) => {
   //     });
 
   if (!req.body.source) {
-    newsapi.v2
+    await newsapi.v2
       .everything({
         q: req.body.data,
         // sources: "google-news-in,bbc-news",
@@ -67,7 +67,7 @@ app.post("/verify", (req, res) => {
   } else {
     let s = req.body.sources;
     console.log("Sources:" + s);
-    newsapi.v2
+    await newsapi.v2
       .everything({
         q: req.body.data,
         sources: s,
@@ -110,7 +110,7 @@ app.post("/verify", (req, res) => {
 app.post("/headlines", (req, res) => {
   //   To query top headlines
   //   All options passed to topHeadlines are optional, but you need to include at least one of them
-  newsapi.v2
+  await newsapi.v2
     .topHeadlines({
       q: `${req.body.data}`,
 
@@ -132,7 +132,7 @@ app.post("/headlines", (req, res) => {
 
 app.post("/gnews", (req, res) => {
   const q = req.body.data;
-  axios
+  await axios
     .get(
       `https://gnews.io/api/v4/search?q=${q}&lang=en&country=in&max=10&apikey=8ae272b8b99507b8fe28f5cd8583f192`
     )
