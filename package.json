@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "client": "npm run dev --prefix ./client/fake-news/",
+    "client": "npm run build --prefix ./client/fake-news/",
     "dev": "concurrently --kill-others-on-fail \"node app.js\" \"npm run client\""
   },
   "author": "",
