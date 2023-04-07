@@ -16,7 +16,7 @@ app.use(function (req, res, next) {
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
   );
-  res.status(200).send();
+
   next();
 });
 
@@ -62,7 +62,7 @@ app.post("/verify", async (req, res) => {
               articles: [...]
             }
           */
-        res.send(JSON.stringify(response)).status(200);
+        res.status(200).send(JSON.stringify(response));
       });
   } else {
     let s = req.body.sources;
@@ -82,7 +82,7 @@ app.post("/verify", async (req, res) => {
               articles: [...]
             }
           */
-        res.send(JSON.stringify(response)).status(200);
+        res.status(200).send(JSON.stringify(response));
       });
   }
 
@@ -107,7 +107,7 @@ app.post("/verify", async (req, res) => {
   //     });
 });
 
-app.post("/headlines", (req, res) => {
+app.post("/headlines", async (req, res) => {
   //   To query top headlines
   //   All options passed to topHeadlines are optional, but you need to include at least one of them
   await newsapi.v2
@@ -126,11 +126,11 @@ app.post("/headlines", (req, res) => {
               articles: [...]
             }
             */
-      res.send(JSON.stringify(response));
+      res.status(200).send(JSON.stringify(response));
     });
 });
 
-app.post("/gnews", (req, res) => {
+app.post("/gnews", async (req, res) => {
   const q = req.body.data;
   await axios
     .get(
@@ -139,7 +139,7 @@ app.post("/gnews", (req, res) => {
     .then((response) => {
       console.log(response.data.articles);
 
-      res.send(response.data);
+      res.status(200).send(response.data);
     })
     .catch((error) => {
       console.log(error);
