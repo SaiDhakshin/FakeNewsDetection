@@ -155,17 +155,17 @@ export default {
 
       if (this.provider == "google-in") {
         try {
-          // await axios
-          //   .post("https://fake-news-detection-back.vercel.app/verify", {
-          //     data: this.query,
-          //     source: this.sources,
-          //     withCredentials: false,
-          //   })
           await axios
-            .post("http://localhost:3000/verify", {
+            .post("https://fake-news-detection-back.vercel.app/verify", {
               data: this.query,
               source: this.sources,
+              withCredentials: false,
             })
+            // await axios
+            //   .post("http://localhost:3000/verify", {
+            //     data: this.query,
+            //     source: this.sources,
+            //   })
             .then((response) => {
               console.log(response);
               for (let article of response.data.articles) {
@@ -198,16 +198,16 @@ export default {
       }
 
       if (this.provider == "gnews") {
-        // await axios
-        //   .post("https://fake-news-detection-back.vercel.app/gnews", {
-        //     data: this.query,
-        //     withCredentials: false,
-        //   })
         await axios
-          .post("http://localhost:3000/verify", {
+          .post("https://fake-news-detection-back.vercel.app/gnews", {
             data: this.query,
-            source: this.sources,
+            withCredentials: false,
           })
+          // await axios
+          //   .post("http://localhost:3000/verify", {
+          //     data: this.query,
+          //     source: this.sources,
+          //   })
           .then((response) => {
             console.log(response);
 
