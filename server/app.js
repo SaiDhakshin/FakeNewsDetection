@@ -61,7 +61,7 @@ app.post("/verify", (req, res) => {
               articles: [...]
             }
           */
-        res.send(JSON.stringify(response));
+        res.send(JSON.stringify(response)).status(200);
       });
   } else {
     let s = req.body.sources;
@@ -81,7 +81,7 @@ app.post("/verify", (req, res) => {
               articles: [...]
             }
           */
-        res.send(JSON.stringify(response));
+        res.send(JSON.stringify(response)).status(200);
       });
   }
 
